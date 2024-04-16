@@ -20,7 +20,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-
+      - name: Create package
+        run: |
+          if [ ! -f package.json ]; then
+            npm init -y
+          fi
       - name: npm install, build, and test
         run: |
           npm install
