@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Hydroponic System</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-4 {
+            flex: 0 0 32%;
+            max-width: 32%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .value-input span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],
+        button {
+            background-color: #f0f0f0;
+            /* 浅灰色背景 */
+            border: 1px solid #d3d3d3;
+            /* 边框颜色 */
+            color: #333;
+            /* 文本颜色，深灰色 */
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            /* 增加填充，使输入框更易于点击 */
+            margin-right: 5px;
+            /* 右边距，分开输入框和单位标签 */
+        }
+
+        button {
+            padding: 5px 10px;
+            /* 按钮内填充，调整为合适的大小 */
+            cursor: pointer;
+            /* 鼠标悬停在按钮上时显示指针手势 */
+            transition: background-color 0.3s ease;
+            /* 平滑过渡效果 */
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+            /* 鼠标悬停时的背景色变化 */
+        }
+    </style>
+</head>
+
+<body class="is-preload landing">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1 id="logo"><a href="index.html">Hydroponic</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" id="loginBtn">Hello, iotuser!</a></li> <!-- 登录按钮 -->
+                </ul>
+            </nav>
+
+        </header>
+
+
+
+        <!-- Four -->
+        <section id="four" class="wrapper style1 special fade-up">
+            <div class="container">
+                <header class="major">
+                    <h2>Environment Monitor</h2>
+                    <p>Real-time display of ambient light intensity, ambient temperature, ambient humidity and ambient
+                        colour temperature data</p>
+                </header>
+                <div class="row">
+                    <!-- Light Intensity Section -->
+                    <section class="col-4">
+                        <span class="icon solid alt major fa-sun"></span>
+                        <h3>Light Intensity</h3>
+                        <div id="lightIntensityChart">
+                            <canvas id="lightIntensityCanvas"></canvas>
+                        </div>
+                        <div class="value-input">
+                            <span>Recommended: 500 Lux</span><br>
+                            <span>Current: <span id="currentLight">450 Lux</span></span><br>
+                            <span>Set: <input type="number" id="setLight" value="450"> Lux</span>
+                        </div>
+                        <button onclick="updateLight()">Set Light</button>
+                    </section>
+
+                    <!-- Temperature Section -->
+                    <section class="col-4">
+                        <span class="icon solid alt major fa-thermometer-half"></span>
+                        <h3>Temperature</h3>
+                        <div id="temperatureChart">
+                            <canvas id="temperatureCanvas"></canvas>
+                        </div>
+                        <div class="value-input">
+                            <span>Recommended: 22°C</span><br>
+                            <span>Current: <span id="currentTemperature">21°C</span></span><br>
+                            <span>Set: <input type="number" id="setTemperature" value="21"> °C</span>
+                        </div>
+                        <button onclick="updateTemperature()">Set Temperature</button>
+                    </section>
+
+                    <!-- Humidity Section -->
+                    <section class="col-4">
+                        <span class="icon solid alt major fa-tint"></span>
+                        <h3>Humidity</h3>
+                        <div id="humidityChart">
+                            <canvas id="humidityCanvas"></canvas>
+                        </div>
+                        <div class="value-input">
+                            <span>Recommended: 40%</span><br>
+                            <span>Current: <span id="currentHumidity">35%</span></span><br>
+                            <span>Set: <input type="number" id="setHumidity" value="35"> %</span>
+                        </div>
+                        <button onclick="updateHumidity()">Set Humidity</button>
+                    </section>
+                </div>
+                <header class="major">
+                    <h2>Plant Condition</h2>
+                </header>
+                <header>
+                    <h3>Plant Left</h3>
+                </header>
+                <div class="row"
+                    style="display: flex; justify-content: space-between; align-items: stretch; width: 100%;">
+                    <div class="col image-col"
+                        style="flex: 1; margin: 10px; display: flex; justify-content: center; align-items: center; box-sizing: border-box;">
+                        <img src="images/pic04.jpg"
+                            style="max-width: 100%; max-height: 300px; width: auto; height: auto;">
+                    </div>
+                    <section class="col" style="flex: 1; margin: 10px; box-sizing: border-box;">
+                        <span class="icon solid alt major fa-seedling"></span>
+                        <h3>Growth Stage</h3>
+                        <div id="growthStageLeftChart">
+                            <canvas id="growthStageLeftCanvas"></canvas>
+                        </div>
+                    </section>
+                    <section class="col" style="flex: 1; margin: 10px; box-sizing: border-box;">
+                        <span class="icon solid alt major fa-star"></span>
+                        <h3>Customisation</h3>
+                        <div id="customFlavorsLeftChart">
+                            <canvas id="customFlavorsLeftCanvas"></canvas>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Repeat for Plant Middle -->
+                <header>
+                    <h3>Plant Middle</h3>
+                </header>
+                <div class="row"
+                    style="display: flex; justify-content: space-between; align-items: stretch; width: 100%;">
+                    <div class="col image-col"
+                        style="flex: 1; margin: 10px; display: flex; justify-content: center; align-items: center; box-sizing: border-box;">
+                        <img src="images/pic04.jpg"
+                            style="max-width: 100%; max-height: 300px; width: auto; height: auto;">
+                    </div>
+                    <section class="col" style="flex: 1; margin: 10px; box-sizing: border-box;">
+                        <span class="icon solid alt major fa-seedling"></span>
+                        <h3>Growth Stage</h3>
+                        <div id="growthStageMiddleChart">
+                            <canvas id="growthStageMiddleCanvas"></canvas>
+                        </div>
+                    </section>
+                    <section class="col" style="flex: 1; margin: 10px; box-sizing: border-box;">
+                        <span class="icon solid alt major fa-star"></span>
+                        <h3>Customisation</h3>
+                        <div id="customFlavorsMiddleChart">
+                            <canvas id="customFlavorsMiddleCanvas"></canvas>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Repeat for Plant Right -->
+                <header>
+                    <h3>Plant Right</h3>
+                </header>
+                <div class="row"
+                    style="display: flex; justify-content: space-between; align-items: stretch; width: 100%;">
+                    <div class="col image-col"
+                        style="flex: 1; margin: 10px; display: flex; justify-content: center; align-items: center; box-sizing: border-box;">
+                        <img src="images/pic04.jpg"
+                            style="max-width: 100%; max-height: 300px; width: auto; height: auto;">
+                    </div>
+                    <section class="col" style="flex: 1; margin: 10px; box-sizing: border-box;">
+                        <span class="icon solid alt major fa-seedling"></span>
+                        <h3>Growth Stage</h3>
+                        <div id="growthStageRightChart">
+                            <canvas id="growthStageRightCanvas"></canvas>
+                        </div>
+                    </section>
+                    <section class="col" style="flex: 1; margin: 10px; box-sizing: border-box;">
+                        <span class="icon solid alt major fa-star"></span>
+                        <h3>Customisation</h3>
+                        <div id="customFlavorsRightChart">
+                            <canvas id="customFlavorsRightCanvas"></canvas>
+                        </div>
+                    </section>
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+        <script>
+            /*
+            function updateLight() {
+                var setLightValue = document.getElementById("setLight").value;
+                document.getElementById("currentLight").textContent = setLightValue + " Lux";
+            }
+    
+            function updateTemperature() {
+                var setTemperatureValue = document.getElementById("setTemperature").value;
+                document.getElementById("currentTemperature").textContent = setTemperatureValue + "°C";
+            }
+    
+            function updateHumidity() {
+                var setHumidityValue = document.getElementById("setHumidity").value;
+                document.getElementById("currentHumidity").textContent = setHumidityValue + "%";
+            }
+            */
+
+
+            /*
+            // 假设这些变量包含从后端获取的数据
+            var lightIntensityData = [...]; // 环境光强数据
+            var temperatureData = [...];    // 环境温度数据
+            var humidityData = [...];       // 环境湿度数据
+            var colorTemperatureData = [...]; // 环境色温数据
+            var timeLabels = [...];         // 时间标签
+            */
+
+            var lightIntensityData = [135.28, 108.00, 119.57, 144.82, 137.35, 80.45, 119.00, 96.97, 97.94, 108.21, 102.88, 129.09, 115.22, 102.43, 108.88, 106.67, 129.88, 95.90, 106.26, 82.92, 48.94, 113.07, 117.29, 85.16]
+            var temperatureData = [26.54, 19.09, 22.09, 21.63, 25.07, 24.94, 22.31, 22.76, 20.22, 18.04, 21.30, 22.31, 24.46, 24.40, 21.23, 21.40, 19.90, 19.16, 18.59, 25.90, 20.98, 21.12, 19.49, 23.55]
+            var humidityData = [33.86, 47.87, 41.05, 53.87, 44.89, 38.19, 49.72, 54.28, 50.67, 53.02, 43.66, 46.37, 43.28, 46.40, 41.87, 32.74, 51.77, 45.98, 33.70, 54.63, 40.93, 50.52, 57.29, 51.29]
+
+            var customFlavorsLeftData = {
+                UserPreference: [2, 4, 3, 1.5, 3],
+            };
+            var customFlavorsMiddleData = {
+                UserPreference: [4, 2, 3, 1.5, 3],
+            };
+            var customFlavorsRightData = {
+                UserPreference: [4, 2, 3, 5, 3],
+            };
+            var LeftcurrentProgress = 89;
+            var LeftcurrentStage = 2;
+            var MiddlecurrentProgress = 90;
+            var MiddlecurrentStage = 2;
+            var RightcurrentProgress = 78;
+            var RightcurrentStage = 2;
+
+            function generateTimeLabels() {
+                var timeLabels = [];
+                var now = new Date();
+                // 将时间向后调整到最近的5分钟
+                now.setMinutes(now.getMinutes() - (now.getMinutes() % 5));
+                now.setSeconds(0);
+                now.setMilliseconds(0);
+
+                // 生成过去2小时的时间标签
+                for (var i = 0; i < 24; i++) { // 每5分钟一个时间点，共2小时
+                    var timeString = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+                    timeLabels.unshift(timeString); // 将时间标签添加到数组的开头
+                    now.setMinutes(now.getMinutes() - 5); // 向后计算5分钟
+                }
+                return timeLabels;
+            }
+
+            var timeLabels = generateTimeLabels();
+            console.log(timeLabels);
+            function drawCenterText(chart, text) {
+    var ctx = chart.ctx;
+    ctx.save();
+    ctx.font = '30px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    var centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+    var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+    ctx.fillText(text, centerX, centerY);
+    ctx.restore();
+}
+
+  
+
+            // 初始化定制口味图表
+            function initCustomFlavorsChart(ctx, data) {
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Texture', 'Leaf color', 'Sourness', 'Bitterness', 'Sweetness'],
+                        datasets: Object.keys(data).map(key => ({
+                            label: key.replace('_', '-'),
+                            data: data[key],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgb(255, 99, 132)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 99, 132)'
+                        }))
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                borderWidth: 2 // Adjust the line width as needed
+                            },
+                            point: {
+                                radius: 3 // Adjust the point radius as needed
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true,
+                                    color: 'gray' // Set color of radial lines as needed
+                                },
+                                ticks: {
+                                    beginAtZero: true,
+                                    max: 5,
+                                    backdropColor: 'transparent', // Makes the background of tick labels transparent
+                                    stepSize: 1, // Include a tick for each unit
+                                    color: 'gray' // Set color of ticks labels as needed
+                                },
+                                grid: {
+                                    circular: false,
+                                    color: 'gray' // Set color of grid lines as needed
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    // You can style the legend labels as needed
+                                }
+                            },
+                            tooltip: {
+                                // Tooltips configuration as needed
+                            }
+                        }
+                    }
+                });
+            }
+
+
+            // 初始化所有图表
+            function initCharts() {
+
+                var lightIntensityCtx = document.getElementById('lightIntensityCanvas').getContext('2d');
+                var temperatureCtx = document.getElementById('temperatureCanvas').getContext('2d');
+                var humidityCtx = document.getElementById('humidityCanvas').getContext('2d');
+                // Initialization for Plant Left
+               
+                var customFlavorsLeftCtx = document.getElementById('customFlavorsLeftCanvas').getContext('2d');
+
+                // Initialization for Plant Middle
+               
+                var customFlavorsMiddleCtx = document.getElementById('customFlavorsMiddleCanvas').getContext('2d');
+
+                // Initialization for Plant Right
+               
+                var customFlavorsRightCtx = document.getElementById('customFlavorsRightCanvas').getContext('2d');
+
+
+                // 定义图表的数据和配置，此处使用相同的数据源和配置来初始化图表
+                // 可以根据需要调整每个图表的数据源和配置
+
+                // 环境光强图表配置
+                new Chart(lightIntensityCtx, {
+                    type: 'line',
+                    data: {
+                        labels: timeLabels,
+                        datasets: [{
+                            label: 'Light Intensity',
+                            data: lightIntensityData,
+                            fill: false,
+                            borderColor: 'rgb(255, 205, 86)',
+                            tension: 0.1
+                        }]
+                    }
+                });
+
+                // 环境温度图表配置
+                new Chart(temperatureCtx, {
+                    type: 'line',
+                    data: {
+                        labels: timeLabels,
+                        datasets: [{
+                            label: 'Temperature',
+                            data: temperatureData,
+                            fill: false,
+                            borderColor: 'rgb(255, 99, 132)',
+                            tension: 0.1
+                        }]
+                    }
+                });
+
+                // 环境湿度图表配置
+                new Chart(humidityCtx, {
+                    type: 'line',
+                    data: {
+                        labels: timeLabels,
+                        datasets: [{
+                            label: 'Humidity',
+                            data: humidityData,
+                            fill: false,
+                            borderColor: 'rgb(54, 162, 235)',
+                            tension: 0.1
+                        }]
+                    }
+                });
+                // Custom Flavors 图表配置 - 示例配置适用于所有三个位置
+                initCustomFlavorsChart(customFlavorsLeftCtx, customFlavorsLeftData);
+                initCustomFlavorsChart(customFlavorsMiddleCtx, customFlavorsMiddleData);
+                initCustomFlavorsChart(customFlavorsRightCtx, customFlavorsRightData);
+
+            }
+            // Assuming initialization of currentStage and currentProgress variables
+function updateChart(chart, currentStage, currentProgress, stageColors) {
+    chart.data.datasets[0].backgroundColor[0] = stageColors[currentStage];
+    chart.data.datasets[0].data = [currentProgress, 223 - currentProgress];
+    chart.update();
+}
+
+function initializeCharts() {
+    var growthLeftStageCtx = document.getElementById('growthStageLeftCanvas').getContext('2d');
+    var growthMiddleStageCtx = document.getElementById('growthStageMiddleCanvas').getContext('2d');
+    var growthRightStageCtx = document.getElementById('growthStageRightCanvas').getContext('2d');
+    const options = {
+    type: 'doughnut',
+    data: {
+        labels: ['Progress', 'Remaining'],
+        datasets: [{
+            data: [0, 223],  // Initial data, possibly updated dynamically
+            backgroundColor: ['green', 'lightgrey'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        circumference: 360,
+        rotation: -90,
+        cutout: '80%',
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        animation: {
+            duration: 0, // Set to non-zero if smooth drawing animation is desired
+            onProgress: function(animation) {
+                const chart = animation.chart;
+                const currentData = chart.data.datasets[0].data[0]; // Access the current progress
+                drawCenterText(chart, currentData.toFixed(2) + '%');
+            }
+        }
+    }
+};
+
+
+    window.LeftgrowthStageChart = new Chart(growthLeftStageCtx, options);
+    window.MiddlegrowthStageChart = new Chart(growthMiddleStageCtx, options);
+    window.RightgrowthStageChart = new Chart(growthRightStageCtx, options);
+
+    setInterval(function () {
+        var rand = Math.random() * 0.0001;
+        LeftcurrentProgress += 0.00092 + rand;
+        MiddlecurrentProgress += 0.00092 + rand;
+        RightcurrentProgress += 0.00092 + rand;
+
+        if (LeftcurrentProgress >= 223) {
+            LeftcurrentProgress = 0;
+            LeftcurrentStage = (LeftcurrentStage + 1) % 3;
+        }
+        if (MiddlecurrentProgress >= 223) {
+            MiddlecurrentProgress = 0;
+            MiddlecurrentStage = (MiddlecurrentStage + 1) % 3;
+        }
+        if (RightcurrentProgress >= 223) {
+            RightcurrentProgress = 0;
+            RightcurrentStage = (RightcurrentStage + 1) % 3;
+        }
+
+        var stageColors = ['green', 'blue', 'red'];
+        updateChart(window.LeftgrowthStageChart, LeftcurrentStage, LeftcurrentProgress, stageColors);
+        updateChart(window.MiddlegrowthStageChart, MiddlecurrentStage, MiddlecurrentProgress, stageColors);
+        updateChart(window.RightgrowthStageChart, RightcurrentStage, RightcurrentProgress, stageColors);
+
+        // Assuming drawCenterText is your defined function
+        drawCenterText(window.LeftgrowthStageChart, LeftcurrentProgress.toFixed(5) + '%');
+        drawCenterText(window.MiddlegrowthStageChart, MiddlecurrentProgress.toFixed(5) + '%');
+        drawCenterText(window.RightgrowthStageChart, RightcurrentProgress.toFixed(5) + '%');
+    }, 5000);
+}
+
+            // 页面加载完成后初始化图表
+            window.onload = function () {
+                initCharts();
+                initializeCharts();
+            };
+
+
+        </script>
+
+
+
+
+
+
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+
+</body>
+
+</html>
