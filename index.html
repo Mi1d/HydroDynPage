@@ -27,6 +27,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#" id="loginBtn">Login In</a></li> <!-- 登录按钮 -->
+                    <li><a href="myplant.html">Myplant</a></li>
                 </ul>
             </nav>
 
@@ -53,14 +54,14 @@
                         <div class="col-4 col-12-medium">
                             <header>
                                 <h2>Hydroponic Farm</h2>
-                                <p>Write a brief introduction here. </p>
+                                <p>Welcome to the future of agriculture! At our Hydroponic Farm, we harness cutting-edge technology to cultivate plants without soil, using mineral nutrient solutions in a water solvent. </p>
                             </header>
                         </div>
                         <div class="col-4 col-12-medium">
-                            <p>Write a brief introduction here.</p>
+                            <p>Discover how our hydroponic systems work to provide an ideal environment for plant growth, optimizing space and resources to produce fresh, healthy produce all year round.</p>
                         </div>
                         <div class="col-4 col-12-medium">
-                            <p>Write a brief introduction here.</p>
+                            <p>Experience the benefits of soil-less farming which includes reduced pesticide use, lower water usage, and the ability to grow in varied climates and locales.</p>
                         </div>
                     </div>
                 </div>
@@ -97,131 +98,18 @@
             <div class="content">
                 <header>
                     <h2>Spinach</h2>
-                    <p>Write a brief introduction here.</p>
+                    <p>Learn about the specific requirements of spinach, from optimal light settings to the precise nutrient mix needed to produce robust, flavorful leaves.</p>
                 </header>
-                <p>Write a brief introduction here.</p>
+                <p>Spinach requires a well-balanced nutrient regimen for optimal growth. Macronutrients include the primary components of nitrogen (N), phosphorus (P), and potassium (K) — collectively known as NPK — which are essential for healthy leaf development. Additionally, calcium (Ca), magnesium (Mg), and sulfur (S) are important for structural and enzymatic functions.</p>
+                
                 <ul class="actions">
                     <li><a href="#" class="button">Learn More</a></li>
                 </ul>
+                <ul class="actions">
+                    <li><a href="#" class="button">Choose the Ricipe </a></li>
+                </ul>
             </div>
             <a href="#four" class="goto-next scrolly">Next</a>
-        </section>
-        <!-- Four -->
-        <section id="four" class="wrapper style1 special fade-up">
-            <div class="container">
-                <header class="major">
-                    <h2>Environment Monitor</h2>
-                    <p>Real-time display of ambient light intensity, ambient temperature, ambient humidity and ambient
-                        colour temperature data</p>
-                </header>
-                <!-- 环境光强 -->
-                <section class="col-4 col-6-medium col-12-xsmall">
-                    <span class="icon solid alt major fa-sun"></span>
-                    <h3>Light Intensity</h3>
-                    <div id="lightIntensityChart">
-                        <canvas id="lightIntensityCanvas"></canvas>
-                    </div>
-                    <div class="value-input">
-                        <span>Recommended: 500 Lux</span>
-                        <input type="text" placeholder="Enter Value" />
-                    </div>
-                </section>
-                <!-- 环境温度 -->
-                <section class="col-4 col-6-medium col-12-xsmall">
-                    <span class="icon solid alt major fa-thermometer-half"></span>
-                    <h3>Temperature</h3>
-                    <div id="temperatureChart">
-                        <canvas id="temperatureCanvas"></canvas>
-                    </div>
-                    <div class="value-input">
-                        <span>Recommended: 22°C</span>
-                        <input type="text" placeholder="Enter Value" />
-                    </div>
-                </section>
-                <!-- 环境湿度 -->
-                <section class="col-4 col-6-medium col-12-xsmall">
-                    <span class="icon solid alt major fa-tint"></span>
-                    <h3>Humidity</h3>
-                    <div id="humidityChart">
-                        <canvas id="humidityCanvas"></canvas>
-                    </div>
-                    <div class="value-input">
-                        <span>Recommended: 40%</span>
-                        <input type="text" placeholder="Enter Value" />
-                    </div>
-                </section>
-                <!-- 环境色温 -->
-                <section class="col-4 col-6-medium col-12-xsmall">
-                    <span class="icon solid alt major fa-lightbulb"></span>
-                    <h3>Color Temperature</h3>
-                    <div id="colorTemperatureChart">
-                        <canvas id="colorTemperatureCanvas"></canvas>
-                    </div>
-                    <div class="value-input">
-                        <span>Recommended: 6500K</span>
-                        <input type="text" placeholder="Enter Value" />
-                    </div>
-                </section>
-
-                <!-- 新增图表部分 -->
-                <section class="col-4 col-6-medium col-12-xsmall">
-                    <span class="icon solid alt major fa-seedling"></span>
-                    <h3>Growth Stage</h3>
-                    <div id="growthStageChart">
-                        <canvas id="growthStageCanvas"></canvas>
-                    </div>
-                </section>
-                  <!-- CustomFlavors Section (assuming you wanted to add this) -->
-                  <section class="col-6 col-12-medium">
-                    <span class="icon solid alt major fa-star"></span>
-                    <h3>Customisation</h3>
-                    <div id="customFlavorsChart">
-                        <canvas id="customFlavorsCanvas"></canvas>
-                    </div>
-                </section>
-
-                <section class="col-4 col-6-medium col-12-xsmall">
-                    <span class="icon solid alt major fa-star"></span>
-                    <h3>Spectroscopy</h3>
-                    <div id="WaveLengthChart">
-                        <canvas id="WaveLengthCanvas"></canvas>
-                    </div>
-                    <!-- 删除了原来的按钮 -->
-                    <!-- 添加推荐值和输入框 -->
-                    <div class="parameters">
-                        <div class="parameter">
-                            <span>Recommended: 100</span>
-                            <input type="text" placeholder="Enter Value 1" />
-                        </div>
-                        <div class="parameter">
-                            <span>Recommended: 80</span>
-                            <input type="text" placeholder="Enter Value 2" />
-                        </div>
-                        <div class="parameter">
-                            <span>Recommended: 60</span>
-                            <input type="text" placeholder="Enter Value 3" />
-                        </div>
-                        <div class="parameter">
-                            <span>Recommended: 40</span>
-                            <input type="text" placeholder="Enter Value 4" />
-                        </div>
-                        <div class="parameter">
-                            <span>Recommended: 65</span>
-                            <input type="text" placeholder="Enter Value 5" />
-                        </div>
-                        <div class="parameter">
-                            <span>Recommended: 35</span>
-                            <input type="text" placeholder="Enter Value 6" />
-                        </div>
-                        <div class="parameter">
-                            <span>Recommended: 20</span>
-                            <input type="text" placeholder="Enter Value 7" />
-                        </div>
-                    </div>
-                </section>
-              
-
-
         </section>
 
         <!-- 弹出式登录窗口的HTML -->
@@ -288,280 +176,16 @@
             var timeLabels = [...];         // 时间标签
             */
 
-            var lightIntensityData = [135.28, 108.00, 119.57, 144.82, 137.35, 80.45, 119.00, 96.97, 97.94, 108.21, 102.88, 129.09, 115.22, 102.43, 108.88, 106.67, 129.88, 95.90, 106.26, 82.92, 48.94, 113.07, 117.29, 85.16]
-            var temperatureData = [26.54, 19.09, 22.09, 21.63, 25.07, 24.94, 22.31, 22.76, 20.22, 18.04, 21.30, 22.31, 24.46, 24.40, 21.23, 21.40, 19.90, 19.16, 18.59, 25.90, 20.98, 21.12, 19.49, 23.55]
-            var humidityData = [33.86, 47.87, 41.05, 53.87, 44.89, 38.19, 49.72, 54.28, 50.67, 53.02, 43.66, 46.37, 43.28, 46.40, 41.87, 32.74, 51.77, 45.98, 33.70, 54.63, 40.93, 50.52, 57.29, 51.29]
-            var colorTemperatureData = [5569.70, 4382.59, 5201.17, 4657.59, 4564.60, 4710.58, 4844.22, 5028.08, 4417.43, 5450.41, 5232.83, 4231.88, 5744.13, 5947.94, 5589.39, 4910.04, 4464.62, 5527.23, 4798.41, 5611.22, 5104.14, 5488.32, 5178.18, 5353.29]
-            var currentStage = 0;
-            var currentProgress = 0;
-            var WaveLength = [78, 85, 60, 25, 100, 35, 21];
-            var customFlavorsData = {
-                UserPreference: [4, 2, 3, 1.5, 3],
-    };
+   
 
-            function generateTimeLabels() {
-                var timeLabels = [];
-                var now = new Date();
-                // 将时间向后调整到最近的5分钟
-                now.setMinutes(now.getMinutes() - (now.getMinutes() % 5));
-                now.setSeconds(0);
-                now.setMilliseconds(0);
-
-                // 生成过去2小时的时间标签
-                for (var i = 0; i < 24; i++) { // 每5分钟一个时间点，共2小时
-                    var timeString = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
-                    timeLabels.unshift(timeString); // 将时间标签添加到数组的开头
-                    now.setMinutes(now.getMinutes() - 5); // 向后计算5分钟
-                }
-                return timeLabels;
-            }
-
-            var timeLabels = generateTimeLabels();
-            console.log(timeLabels);
-            function drawCenterText(chart, text) {
-                var ctx = chart.ctx;
-                ctx.save();
-                ctx.font = '30px Arial';
-                ctx.fillStyle = 'white';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                var centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-                var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-                ctx.fillText(text, centerX, centerY);
-                ctx.restore();
-            }
-
-
-
-            // 初始化所有图表
-            function initCharts() {
-                var lightIntensityCtx = document.getElementById('lightIntensityCanvas').getContext('2d');
-                var temperatureCtx = document.getElementById('temperatureCanvas').getContext('2d');
-                var humidityCtx = document.getElementById('humidityCanvas').getContext('2d');
-                var colorTemperatureCtx = document.getElementById('colorTemperatureCanvas').getContext('2d');
-                var growthStageCtx = document.getElementById('growthStageCanvas').getContext('2d');
-                var WavelengthCtx = document.getElementById('WaveLengthCanvas').getContext('2d');
-                var customFlavorsCtx = document.getElementById('customFlavorsCanvas').getContext('2d');
-
-                // 创建环境光强图表
-                new Chart(lightIntensityCtx, {
-                    type: 'line',
-                    data: {
-                        labels: timeLabels,
-                        datasets: [{
-                            label: 'Light Intensity',
-                            data: lightIntensityData,
-                            fill: false,
-                            borderColor: 'rgb(255, 205, 86)',
-                            tension: 0.1
-                        }]
-                    }
-                });
-
-                // 创建环境温度图表
-                new Chart(temperatureCtx, {
-                    type: 'line',
-                    data: {
-                        labels: timeLabels,
-                        datasets: [{
-                            label: 'Temperature',
-                            data: temperatureData,
-                            fill: false,
-                            borderColor: 'rgb(255, 99, 132)',
-                            tension: 0.1
-                        }]
-                    }
-                });
-
-                // 创建环境湿度图表
-                new Chart(humidityCtx, {
-                    type: 'line',
-                    data: {
-                        labels: timeLabels,
-                        datasets: [{
-                            label: 'Humidity',
-                            data: humidityData,
-                            fill: false,
-                            borderColor: 'rgb(54, 162, 235)',
-                            tension: 0.1
-                        }]
-                    }
-                });
-
-                // 创建环境色温图表
-                new Chart(colorTemperatureCtx, {
-                    type: 'line',
-                    data: {
-                        labels: timeLabels,
-                        datasets: [{
-                            label: 'Color Temperature',
-                            data: colorTemperatureData,
-                            fill: false,
-                            borderColor: 'rgb(25, 156, 46)',
-                            tension: 0.1
-                        }]
-                    }
-                });
-                // 假设当前阶段为第三个阶段（索引为2）
-                window.growthStageChart = new Chart(growthStageCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Progress', 'Remaining'],
-                        datasets: [{
-                            data: [0, 100],
-                            backgroundColor: ['green', 'lightgrey'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        circumference: 360,
-                        rotation: -90,
-                        cutout: '80%',
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        },
-                        animation: {
-                            // 禁用动画，以便我们可以手动绘制文本
-                            duration: 0
-                        }
-                    }
-                });
-
-                // 设置定时器更新环形图
-                setInterval(function () {
-                    // 更新进度
-                    currentProgress += 10;
-                    if (currentProgress > 100) {
-                        currentProgress = 0;
-                        currentStage = (currentStage + 1) % 4;
-                    }
-
-                    // 更新颜色
-                    var stageColors = ['green', 'blue', 'red', 'yellow'];
-                    window.growthStageChart.data.datasets[0].backgroundColor[0] = stageColors[currentStage];
-                    window.growthStageChart.data.datasets[0].data = [currentProgress, 100 - currentProgress];
-                    window.growthStageChart.update();
-
-                    // 绘制中心文本
-                    drawCenterText(window.growthStageChart, currentProgress + '%');
-                }, 1000);
-                // 植物健康评分图表
-                new Chart(WavelengthCtx, {
-                    type: 'radar',
-                    data: {
-                        labels: ['410', '440', '510', '550', '590', '630', '680'],
-                        datasets: [{
-                            label: 'WaveLength',
-                            data: WaveLength, // 示例数据
-                            backgroundColor: 'rgba(255, 100, 0, 0.2)', // 偏红的橘黄色背景颜色
-                            borderColor: 'rgba(255, 100, 0, 1)', // 偏红的橘黄色边框颜色
-                            borderWidth: 1
-
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            borderDash: [5, 1], // 设置刻度线为虚线，[虚线长度, 空白长度]
-                            r: {
-                                beginAtZero: true,
-                                max: 100, // 设置最大值为100
-
-                                ticks: {
-                                    backdropColor: 'transparent', // 设置刻度标签背景为透明
-                                    //borderWidth: 0, // 设置刻度标签边框宽度为0
-                                    stepSize: 25, // 设置刻度间隔为25
-                                    //maxTicksLimit: 4, // 设置最大刻度标签数量
-                                    color: 'white', // 设置标签字体颜色为白色
-                                    font: {
-                                        weight: 'bold' // 设置标签字体为粗体
-                                    }
-                                },
-                                grid: {
-                                    color: 'gray', // 设置刻度线的颜色为灰色
-
-                                },
-                                angleLines: {
-                                    display: true,
-                                    color: 'gray',
-                                    borderDash: [5, 5] // 设置为虚线
-                                },
-                                gridLines: {
-                                    color: 'gray',
-                                    borderDash: [5, 5] // 设置为虚线
-                                },
-                            },
-
-
-                        }
-                    }
-                });
-                // Rename the context for the radar chart to 'customFlavoursCtx'
-                new Chart(customFlavorsCtx, {
-                    type: 'radar',
-        data: {
-            labels: [ 'Texture', 'Leaf color', 'Sourness', 'Bitterness', 'Sweetness'],
-            datasets: Object.keys(customFlavorsData).map((key) => ({
-                label: key.replace('_', '-'), // Change underscores to hyphens for display
-                data: customFlavorsData[key],
-                // add other dataset properties such as background color, border color, etc.
-            })),
-        },
-        options: {
-    elements: {
-        line: {
-            borderWidth: 2 // Adjust the line width as needed
-        },
-        point: {
-            radius: 3 // Adjust the point radius as needed
-        }
-    },
-    scales: {
-        r: {
-            angleLines: {
-                display: true,
-                color: 'gray' // Set color of radial lines as needed
-            },
-            ticks: {
-                beginAtZero: true,
-                max: 5,
-                backdropColor: 'transparent', // Makes the background of tick labels transparent
-                stepSize: 1, // Include a tick for each unit
-                color: 'gray' // Set color of ticks labels as needed
-            },
-            grid: {
-                circular: false,
-                color: 'gray' // Set color of grid lines as needed
-            }
-        }
-    },
-    plugins: {
-        legend: {
-            position: 'top',
-            labels: {
-                // You can style the legend labels as needed
-            }
-        },
-        tooltip: {
-            // Tooltips configuration as needed
-        }
-    },
-    // Additional options...
-}
-
-
-    });
-
-
-            }
+            
             // 在此处定义validateLogin
             function validateLogin() {
                 console.log("test");
                 var username = document.getElementById('username').value;
                 var password = document.getElementById('password').value;
                 console.log(username);
-                var presetUsername = 'wulianwang';
+                var presetUsername = 'iotuser';
                 var presetPassword = '123456';
 
                 if (username === presetUsername && password === presetPassword) {
@@ -577,7 +201,6 @@
             // Modifying the window.onload function to initialize the new charts along with existing ones
             window.onload = function () {
                 initModal(); // 初始化登录模态
-                initCharts(); // 初始化所有图表
 
 
 
